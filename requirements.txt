@@ -25,7 +25,6 @@ numpy>=1.26.0
 python-multipart>=0.0.9
 jq>=1.6.0
 typer>=0.9.0
-emergentintegrations==0.2.1
 reportlab>=5.0.1
 qrcode[pil]>=8.2
 pillow>=12.0.0
