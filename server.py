@@ -710,6 +710,4 @@ async def startup():
 
 app.include_router(api)
 allowed_origins = [origin.strip() for origin in os.environ.get("CORS_ORIGINS", "").split(",") if origin.strip() and origin.strip() != "*"]
-allowed_origins.extend(["https://traxo-inventory.preview.emergentagent.com", "http://localhost:3000"])
-app.add_middleware(CORSMiddleware, allow_credentials=True, allow_origins=list(dict.fromkeys(allowed_origins)), allow_methods=["*"], allow_headers=["*"])
 logging.basicConfig(level=logging.INFO)
