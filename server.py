@@ -24,6 +24,16 @@ ROOT_DIR = Path(__file__).parent
 client = AsyncIOMotorClient(os.environ["MONGO_URL"])
 db = client[os.environ["DB_NAME"]]
 app = FastAPI(title="Traxo Inventory API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://traxo-frontend-lfq8.vercel.app",
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 api = APIRouter(prefix="/api")
 JWT_SECRET = os.environ.get("JWT_SECRET", "traxo-local-development-secret")
 logger = logging.getLogger("traxo")
